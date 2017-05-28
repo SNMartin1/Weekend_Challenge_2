@@ -25,3 +25,12 @@ app.post( '/calculate', function( req, res ){
   calculation.push( req.body );
   res.send('calculation');
 });
+
+switch ('') {
+  case '+':
+    return = #firstInput + #secondInput;
+  case '-':
+  case '*':
+  case '/':
+
+}
