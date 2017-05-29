@@ -9,8 +9,9 @@ $(document).ready(function(){
     var requestObject = {
       firstInput : $('#firstInput').val(),
       secondInput : $('#secondInput').val(),
+      type: $(this).text()
     };//end var requestObject
-
+    console.log(requestObject);
   //  start ajax post - create object to send to server
     $.ajax({
       type: 'POST',
@@ -18,7 +19,7 @@ $(document).ready(function(){
       data: requestObject,
       success: function( response ) {
       console.log( 'send requestObject to server');
-      $('#output').val(response.result);
+      $('#output').val(response.calculation);
     }//end sucess
   }); //end ajax POST
 }); //end of button click function
@@ -26,8 +27,9 @@ $(document).ready(function(){
 //start of clear button function
 $('.clearOperator').on('click', function() {
   console.log( 'clear inputs working');
-    $('#value1').val('');
-    $('#value2').val('');
+    $('#firstInput').val('');
+    $('#secondInput').val('');
+    $('#output').val('');
     //$('#output').val('');
    }); //end of clear button function
 });//end of document ready

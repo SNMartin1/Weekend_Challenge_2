@@ -22,15 +22,23 @@ app.get ('/', function(req, res){
 
 app.post( '/calculate', function( req, res ){
   console.log( 'post hit to /calculate:', req.body );
-  calculation.push( req.body );
-  res.send('calculation');
+  var responseObject = {
+    calculation: math(req.body)
+  };
+  res.send(responseObject);
 });
 
-switch ('') {
+var math = function(object){
+switch (object.type) {
   case '+':
-    return = #firstInput + #secondInput;
+    return Number(object.firstInput) + Number(object.secondInput);
   case '-':
+    return Number(object.firstInput) - Number(object.secondInput);
   case '*':
+    return Number(object.firstInput) * Number(object.secondInput);
   case '/':
-
+    return Number(object.firstInput) / Number(object.secondInput);
+  default:
+    break;
 }
+};
